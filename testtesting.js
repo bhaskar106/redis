@@ -52,8 +52,6 @@ describe('hgetall', function () {
 			assert.equal(result["Id"], '1');
 			assert.equal(result["Name"], 'sanjay');
 			assert.equal(result["Department"], 'cse');
-//			assert.equal(result, "{Id: '1', Name: 'sanjay', Department: 'cse'}");
-                       
 			done();     
 		});
         });
