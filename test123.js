@@ -16,8 +16,8 @@ redisClient.get(key, function(err, reply){
 	callback(reply);
 });
 }
-function hmMethod(key,field,value,field,value,field,value, callback){
-redisClient.hmset(key,field,value,field,value,field,value,function(err,obj) {
+function hmMethod(key,field,value,field1,value1,field2,value2, callback){
+redisClient.hmset(key,field,value,field1,value1,field2,value2, function(err,obj) {
         console.log(obj);
 	callback(obj);
 });

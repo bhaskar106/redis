@@ -37,8 +37,8 @@ describe('hmset', function () {
 describe('hget', function () {
     describe('getobject', function () {
         it('should get the object if the command is correct', function (done) {
-		controller.hgetMethod("student","Name" , function(result){
-			assert.equal(result, "sanjay");
+		controller.hgetMethod("student","Department" , function(result){
+			assert.equal(result, "cse");
 			done();
 		});
         });
@@ -49,8 +49,12 @@ describe('hgetall', function () {
     describe('getobject', function () {
         it('should get the object if the command is correct', function (done) {
 		controller.hgetallMethod("student", function(result){
-			assert.equal(result, "{ Id: '1', Name: 'sanjay' , Department: 'cse' }");
-			done();
+			assert.equal(result["Id"], '1');
+			assert.equal(result["Name"], 'sanjay');
+			assert.equal(result["Department"], 'cse');
+//			assert.equal(result, "{Id: '1', Name: 'sanjay', Department: 'cse'}");
+                       
+			done();     
 		});
         });
     });
