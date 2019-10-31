@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 var exports = module.exports = {};
-module.exports = sqlconnection();
+module.exports = createtable();
 
 var connection = mysql.createConnection({
   host: '127.0.0.1',
@@ -15,18 +15,17 @@ connection.connect(function(err) {
   }
   console.log("Connected!");
 });
-
-function sqlconnection(){
-function create(key,callback){
+function createtable(){
+function table(key , callback){
 connection.query(key, function (err, result) {
   if (err){
-     return console.error('error: ' +err.message);
-   }
+      return console.error('error: ' +err.message);
+  } 
+  console.log("Table created!");
   console.log(JSON.stringify(result));
   callback(result);
   //process.exit(0);
   });
 }
-return{create};
+return{table};
 }
-

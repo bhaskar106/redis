@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 var exports = module.exports = {};
-module.exports = sqlconnection();
+module.exports = tablevalues();
 
 var connection = mysql.createConnection({
   host: '127.0.0.1',
@@ -15,18 +15,19 @@ connection.connect(function(err) {
   }
   console.log("Connected!");
 });
-
-function sqlconnection(){
-function create(key,callback){
-connection.query(key, function (err, result) {
+function tablevalues(){
+function value(key , callback){
+connection.query(key , function (err, result) {
   if (err){
-     return console.error('error: ' +err.message);
-   }
+      return console.error('error: ' +err.message);
+  } 
+  console.log("Values entered into the table");
   console.log(JSON.stringify(result));
   callback(result);
   //process.exit(0);
   });
 }
-return{create};
+return{value};
 }
 
+        
